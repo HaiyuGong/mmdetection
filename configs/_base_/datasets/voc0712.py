@@ -1,6 +1,8 @@
 # dataset settings
 dataset_type = 'VOCDataset'
-data_root = 'data/VOCdevkit/'
+# data_root = 'data/VOCdevkit/'
+data_root = '/hy-tmp/datasets/VOCdevkit/'
+
 
 # Example to use different file client
 # Method 1: simply set the data root and let the file I/O module
@@ -59,15 +61,15 @@ train_dataloader = dict(
                         filter_empty_gt=True, min_size=32, bbox_min_size=32),
                     pipeline=train_pipeline,
                     backend_args=backend_args),
-                dict(
-                    type=dataset_type,
-                    data_root=data_root,
-                    ann_file='VOC2012/ImageSets/Main/trainval.txt',
-                    data_prefix=dict(sub_data_root='VOC2012/'),
-                    filter_cfg=dict(
-                        filter_empty_gt=True, min_size=32, bbox_min_size=32),
-                    pipeline=train_pipeline,
-                    backend_args=backend_args)
+                # dict(
+                #     type=dataset_type,
+                #     data_root=data_root,
+                #     ann_file='VOC2012/ImageSets/Main/trainval.txt',
+                #     data_prefix=dict(sub_data_root='VOC2012/'),
+                #     filter_cfg=dict(
+                #         filter_empty_gt=True, min_size=32, bbox_min_size=32),
+                #     pipeline=train_pipeline,
+                #     backend_args=backend_args)
             ])))
 
 val_dataloader = dict(
