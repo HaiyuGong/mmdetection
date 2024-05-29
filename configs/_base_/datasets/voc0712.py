@@ -1,6 +1,8 @@
 # dataset settings
 dataset_type = 'VOCDataset'
-data_root = 'data/VOCdevkit/'
+# data_root = 'data/VOCdevkit/'
+data_root = '/hy-tmp/datasets/VOCdevkit/'
+
 
 # Example to use different file client
 # Method 1: simply set the data root and let the file I/O module
@@ -35,8 +37,8 @@ test_pipeline = [
                    'scale_factor'))
 ]
 train_dataloader = dict(
-    batch_size=2,
-    num_workers=2,
+    batch_size=6,
+    num_workers=8,
     persistent_workers=True,
     sampler=dict(type='DefaultSampler', shuffle=True),
     batch_sampler=dict(type='AspectRatioBatchSampler'),
@@ -71,8 +73,8 @@ train_dataloader = dict(
             ])))
 
 val_dataloader = dict(
-    batch_size=1,
-    num_workers=2,
+    batch_size=6,
+    num_workers=8,
     persistent_workers=True,
     drop_last=False,
     sampler=dict(type='DefaultSampler', shuffle=False),
