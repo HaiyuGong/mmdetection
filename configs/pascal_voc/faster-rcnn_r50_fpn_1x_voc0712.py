@@ -34,6 +34,8 @@ optim_wrapper = dict(
 #   - `base_batch_size` = (8 GPUs) x (2 samples per GPU).
 auto_scale_lr = dict(enable=False, base_batch_size=16)
 
+val_evaluator = dict(eval_mode='11points', metric='mAP', type='VOCMetric')
+test_evaluator = val_evaluator
 visualizer = dict(
     name='visualizer',
     type='DetLocalVisualizer',

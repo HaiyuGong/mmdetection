@@ -61,15 +61,15 @@ train_dataloader = dict(
                         filter_empty_gt=True, min_size=32, bbox_min_size=32),
                     pipeline=train_pipeline,
                     backend_args=backend_args),
-                # dict(
-                #     type=dataset_type,
-                #     data_root=data_root,
-                #     ann_file='VOC2012/ImageSets/Main/trainval.txt',
-                #     data_prefix=dict(sub_data_root='VOC2012/'),
-                #     filter_cfg=dict(
-                #         filter_empty_gt=True, min_size=32, bbox_min_size=32),
-                #     pipeline=train_pipeline,
-                #     backend_args=backend_args)
+                dict(
+                    type=dataset_type,
+                    data_root=data_root,
+                    ann_file='VOC2012/ImageSets/Main/trainval.txt',
+                    data_prefix=dict(sub_data_root='VOC2012/'),
+                    filter_cfg=dict(
+                        filter_empty_gt=True, min_size=32, bbox_min_size=32),
+                    pipeline=train_pipeline,
+                    backend_args=backend_args)
             ])))
 
 val_dataloader = dict(
@@ -90,5 +90,5 @@ test_dataloader = val_dataloader
 
 # Pascal VOC2007 uses `11points` as default evaluate mode, while PASCAL
 # VOC2012 defaults to use 'area'.
-val_evaluator = dict(type='VOCMetric', metric='mAP', eval_mode='11points')
-test_evaluator = val_evaluator
+# val_evaluator = dict(type='VOCMetric', metric='mAP', eval_mode='11points')
+# test_evaluator = val_evaluator
